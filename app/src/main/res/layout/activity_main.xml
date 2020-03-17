@@ -112,7 +112,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonMinus"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_below="@id/quantityTextView"
@@ -130,7 +130,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="23dp"
             android:layout_marginRight="23dp"
-            android:layout_toRightOf="@id/button2"
+            android:layout_toRightOf="@id/buttonMinus"
             android:text="0"
             android:textSize="18sp"
             android:textStyle="bold" />
