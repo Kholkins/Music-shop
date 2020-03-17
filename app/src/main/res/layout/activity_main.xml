@@ -119,6 +119,7 @@
             android:layout_marginLeft="80dp"
             android:layout_toRightOf="@id/priceTitleTextView"
             android:background="@color/colorPrimaryDark"
+            android:onClick="setText"
             android:text="-"
             android:textColor="@android:color/white" />
 
@@ -136,7 +137,8 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonPlus"
+            android:onClick="increaseQuantity"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_below="@id/quantityTextView"
