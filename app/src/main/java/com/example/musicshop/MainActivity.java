@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void decreaseQuantity(View view) {
 
-        quantity++;
+        quantity--;
         quantityNumberTextView.setText("" + quantity);
 
     }
