@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             quantity--;
         }
         quantityNumberTextView.setText("" + quantity);
+        priceTextView.setText(""+ price * quantity);
 
     }
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         quantity++;
         quantityNumberTextView.setText("" + quantity);
+        priceTextView.setText(""+ price * quantity);
     }
 
     @Override
