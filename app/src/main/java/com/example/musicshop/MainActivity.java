@@ -16,6 +16,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private TextView quantityNumberTextView;
+    private TextView priceTextView;
     private Spinner spinner;
 
     private int quantity;
@@ -49,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
-
-
         quantityNumberTextView = (TextView)findViewById(R.id.quantityNumberTextView);
+
+        priceTextView = (TextView)findViewById(R.id.priceTextView);
     }
 
     public void decreaseQuantity(View view) {
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         goodsName = spinner.getSelectedItem().toString();
         price = (double)goodsMap.get(goodsName);
+        priceTextView.setText(""+price);
     }
 
     @Override
