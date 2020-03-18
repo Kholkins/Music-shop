@@ -33,11 +33,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        goodsMap = new HashMap();
-        goodsMap.put("guitar", 500.0);
-        goodsMap.put("drums", 750.0);
-        goodsMap.put("piano", 1500.0);
+        createMap();
 
+        createSpinner();
+
+        quantityNumberTextView = (TextView)findViewById(R.id.quantityNumberTextView);
+
+        priceTextView = (TextView)findViewById(R.id.priceTextView);
+
+        goodsImageView = (ImageView)findViewById(R.id.goodsImageView);
+    }
+
+    private void createSpinner() {
         spinnerArrayList = new ArrayList();
 
         spinnerArrayList.add("guitar");
@@ -50,12 +57,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArrayList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
+    }
 
-        quantityNumberTextView = (TextView)findViewById(R.id.quantityNumberTextView);
-
-        priceTextView = (TextView)findViewById(R.id.priceTextView);
-
-        goodsImageView = (ImageView)findViewById(R.id.goodsImageView);
+    private void createMap(){
+        goodsMap = new HashMap();
+        goodsMap.put("guitar", 500.0);
+        goodsMap.put("drums", 750.0);
+        goodsMap.put("piano", 1500.0);
     }
 
     public void decreaseQuantity(View view) {
