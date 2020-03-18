@@ -3,22 +3,41 @@ package com.example.musicshop;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.TextureView;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView quantityNumberTextView;
+    private Spinner spinner;
 
     private int quantity;
+    private ArrayList spinnerArrayList;
+    private ArrayAdapter spinnerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        quantityNumberTextView = findViewById(R.id.quantityNumberTextView);
+        setContentView(R.layout.activity_main);
+        spinnerArrayList = new ArrayList();
+
+        spinnerArrayList.add("guitar");
+        spinnerArrayList.add("drum");
+        spinnerArrayList.add("organ");
+
+        spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArrayList);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
+        spinner = (Spinner)findViewById(R.id.spinner);
+
+        quantityNumberTextView = (TextView)findViewById(R.id.quantityNumberTextView);
     }
 
     public void decreaseQuantity(View view) {
