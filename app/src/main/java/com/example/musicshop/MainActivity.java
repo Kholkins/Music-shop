@@ -4,14 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private TextView quantityNumberTextView;
     private Spinner spinner;
@@ -19,16 +21,26 @@ public class MainActivity extends AppCompatActivity {
     private int quantity;
     private ArrayList spinnerArrayList;
     private ArrayAdapter spinnerAdapter;
+    private HashMap goodsMap;
+    private String goodsName;
+    private double price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        goodsMap = new HashMap();
+        goodsMap.put("guitar", 500);
+        goodsMap.put("drums", 750);
+        goodsMap.put("organ", 1500);
+
+
+
         setContentView(R.layout.activity_main);
         spinnerArrayList = new ArrayList();
 
         spinnerArrayList.add("guitar");
-        spinnerArrayList.add("drum");
+        spinnerArrayList.add("drums");
         spinnerArrayList.add("organ");
 
         spinner = (Spinner)findViewById(R.id.spinner);
@@ -57,5 +69,14 @@ public class MainActivity extends AppCompatActivity {
         quantityNumberTextView.setText("" + quantity);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        goodsName = spinner.getSelectedItem().toString();
+        price = (double)goodsMap.get(goodsName);
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
