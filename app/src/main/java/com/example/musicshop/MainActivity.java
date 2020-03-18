@@ -31,11 +31,13 @@ public class MainActivity extends AppCompatActivity {
         spinnerArrayList.add("drum");
         spinnerArrayList.add("organ");
 
+        spinner = (Spinner)findViewById(R.id.spinner);
+
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArrayList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
-        spinner = (Spinner)findViewById(R.id.spinner);
+
 
         quantityNumberTextView = (TextView)findViewById(R.id.quantityNumberTextView);
     }
