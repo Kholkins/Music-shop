@@ -9,22 +9,29 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView quantityNumberTextView;
 
+    private int quantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        quantityNumberTextView = findViewById(R.id.quantityNumberTextView);
     }
 
-    public void setText(View view) {
-        TextView newText = findViewById(R.id.quantityNumberTextView);
-        newText.setText("Hello");
-        newText.setBackgroundResource(R.color.colorAccent);
-        newText.setTextSize(30);
+    public void decreaseQuantity(View view) {
+
+        quantity++;
+        quantityNumberTextView.setText("" + quantity);
+
     }
 
     public void increaseQuantity(View view) {
+
+        quantity++;
+        quantityNumberTextView.setText("" + quantity);
     }
 
 

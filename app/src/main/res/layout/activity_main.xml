@@ -119,7 +119,7 @@
             android:layout_marginLeft="80dp"
             android:layout_toRightOf="@id/priceTitleTextView"
             android:background="@color/colorPrimaryDark"
-            android:onClick="setText"
+            android:onClick="decreaseQuantity"
             android:text="-"
             android:textColor="@android:color/white" />
 
