@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
 
         goodsMap = new HashMap();
-        goodsMap.put("guitar", 500);
-        goodsMap.put("drums", 750);
-        goodsMap.put("organ", 1500);
+        goodsMap.put("guitar", 500.0);
+        goodsMap.put("drums", 750.0);
+        goodsMap.put("organ", 1500.0);
 
 
 
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerArrayList.add("organ");
 
         spinner = (Spinner)findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
 
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArrayList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         goodsName = spinner.getSelectedItem().toString();
         price = (double)goodsMap.get(goodsName);
-        priceTextView.setText(""+price);
+        priceTextView.setText(""+ price * quantity);
     }
 
     @Override
