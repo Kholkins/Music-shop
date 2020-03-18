@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private TextView quantityNumberTextView;
     private TextView priceTextView;
     private Spinner spinner;
+    private ImageView goodsImageView;
 
     private int quantity;
     private ArrayList spinnerArrayList;
@@ -29,20 +31,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         goodsMap = new HashMap();
         goodsMap.put("guitar", 500.0);
         goodsMap.put("drums", 750.0);
-        goodsMap.put("organ", 1500.0);
+        goodsMap.put("piano", 1500.0);
 
-
-
-        setContentView(R.layout.activity_main);
         spinnerArrayList = new ArrayList();
 
         spinnerArrayList.add("guitar");
         spinnerArrayList.add("drums");
-        spinnerArrayList.add("organ");
+        spinnerArrayList.add("piano");
 
         spinner = (Spinner)findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         quantityNumberTextView = (TextView)findViewById(R.id.quantityNumberTextView);
 
         priceTextView = (TextView)findViewById(R.id.priceTextView);
+
+        goodsImageView = (ImageView)findViewById(R.id.goodsImageView);
     }
 
     public void decreaseQuantity(View view) {
@@ -78,6 +80,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         goodsName = spinner.getSelectedItem().toString();
         price = (double)goodsMap.get(goodsName);
         priceTextView.setText(""+ price * quantity);
+
+        switch (goodsName) {
+            case "guitar":
+                goodsImageView.setImageResource(R.drawable.guitar);
+                break;
+            case "drums":
+                goodsImageView.setImageResource(R.drawable.drums);
+                break;
+            case "piano":
+                goodsImageView.setImageResource(R.drawable.piano);
+                break;
+
+        }
     }
 
     @Override
