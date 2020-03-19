@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         nameEditText = (EditText)findViewById(R.id.nameEditText);
 
-        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+
     }
 
     private void createSpinner() {
@@ -122,5 +122,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.setGoodsName(goodsName);
         order.setQuantity(quantity);
         order.setOrderPrice(price*quantity);
+
+        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(orderIntent);
     }
 }
