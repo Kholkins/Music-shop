@@ -116,6 +116,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void addToCart(View view) {
         Order order = new Order();
         order.setUserName(nameEditText.getText().toString());
+        order.setGoodsName(goodsName);
+        order.setQuantity(quantity);
+        order.setOrderPrice(price*quantity);
         Log.d("printUserName", order.getUserName());
     }
 }
