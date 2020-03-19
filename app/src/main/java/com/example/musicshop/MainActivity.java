@@ -2,6 +2,7 @@ package com.example.musicshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         goodsImageView = (ImageView)findViewById(R.id.goodsImageView);
 
         nameEditText = (EditText)findViewById(R.id.nameEditText);
+
+        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
     }
 
     private void createSpinner() {
