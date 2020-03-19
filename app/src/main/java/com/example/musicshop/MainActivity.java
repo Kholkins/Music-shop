@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.setOrderPrice(price*quantity);
 
         Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+        orderIntent.putExtra("userName", order.getUserName());
         startActivity(orderIntent);
     }
 }
