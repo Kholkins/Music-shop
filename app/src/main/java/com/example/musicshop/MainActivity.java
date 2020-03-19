@@ -119,6 +119,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.setGoodsName(goodsName);
         order.setQuantity(quantity);
         order.setOrderPrice(price*quantity);
-        Log.d("printUserName", order.getUserName());
     }
 }
