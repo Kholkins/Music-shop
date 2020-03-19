@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Your name"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <RelativeLayout
         android:layout_width="match_parent"
