@@ -3,9 +3,11 @@ package com.example.musicshop;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private TextView priceTextView;
     private Spinner spinner;
     private ImageView goodsImageView;
+    private EditText nameEditText;
 
     private int quantity;
     private ArrayList spinnerArrayList;
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         priceTextView = (TextView)findViewById(R.id.priceTextView);
 
         goodsImageView = (ImageView)findViewById(R.id.goodsImageView);
+
+        nameEditText = (EditText)findViewById(R.id.nameEditText);
     }
 
     private void createSpinner() {
@@ -108,5 +113,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-
+    public void addToCart(View view) {
+        Order order = new Order();
+        order.setUserName(nameEditText.getText().toString());
+        Log.d("printUserName", order.getUserName());
+    }
 }
