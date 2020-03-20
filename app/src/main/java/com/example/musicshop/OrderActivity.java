@@ -28,7 +28,7 @@ public class OrderActivity extends AppCompatActivity {
         String goodsName = orderIntent.getStringExtra("goodsName");
         int quantity = orderIntent.getIntExtra("quantity", 0);
         double orderPrice = orderIntent.getDoubleExtra("orderPrice", 0);
-        textView = (TextView)findViewById(R.id.userNameTextView);
+        textView = (TextView)findViewById(R.id.orderTextView);
         emailText = "Customer name: "+userName + "\nGoods name: "+ goodsName + "\nQuantity: "+ quantity + "\nPrice: "+ orderPrice/quantity + "\nOder price: " + orderPrice;
         textView.setText(emailText);
 
