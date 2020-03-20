@@ -3,6 +3,7 @@ package com.example.musicshop;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 public class OrderActivity extends AppCompatActivity {
 
     private TextView textView;
+    String[] addresses;
+    String subject;
+    Uri attachment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,13 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view) {
-
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_STREAM, attachment);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }
