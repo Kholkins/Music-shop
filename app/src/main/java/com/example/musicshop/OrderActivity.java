@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
@@ -25,6 +26,10 @@ public class OrderActivity extends AppCompatActivity {
         double orderPrice = orderIntent.getDoubleExtra("orderPrice", 0);
         textView = (TextView)findViewById(R.id.userNameTextView);
         textView.setText("Customer name: "+userName + "\nGoods name: "+ goodsName + "\nQuantity: "+ quantity + "\nPrice: "+ orderPrice/quantity + "\nOder price: " + orderPrice);
+
+    }
+
+    public void submitOrder(View view) {
 
     }
 }
