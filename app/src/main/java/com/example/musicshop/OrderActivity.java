@@ -43,5 +43,6 @@ public class OrderActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+
     }
 }
